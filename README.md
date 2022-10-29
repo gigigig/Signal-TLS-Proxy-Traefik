@@ -1,21 +1,15 @@
 # Signal TLS Proxy
 
-To run a Signal TLS proxy, you will need a host that has ports 80 and 443 available and a domain name that points to that host.
+forked from [Signal-TLS-Proxy-Traefik](https://github.com/signalapp/Signal-TLS-Proxy)
 
-1. Install docker and docker-compose (`apt update && apt install docker docker-compose`)
-1. Ensure your current user has access to docker (`adduser $USER docker`)
+If you have [traefik](https://github.com/traefik/traefik) up and running and use [labels](https://doc.traefik.io/traefik/providers/docker/#routing-configuration-with-labels) for dynamic configuration.
+
+A tcp-router and tcp-service `signal-tls-proxy` are created for TLS-Termination. 
+nginx-terminate container is removed and nginx-relay nginx.conf is moved to docker build.
+Assuming traefik listens on `443/tcp` on your host, has a certresolver named `letsencrypt` and has an entrypoint named `websecure`.
+
 1. Clone this repository
-1. `./init-certificate.sh`
-1. `docker-compose up --detach`
+1. Replace `SIGNAL_DOMAIN` in `.env` with your domain
+1. Run `docker compose -f "docker-compose.yml" up -d --build`
 
-Your proxy is now running! You can share this with the URL `https://signal.tube/#<your_host_name>`
-
-## Updating from a previous version
-
-If you've previously run a proxy, please update to the most recent version by pulling the most recent changes from `main`, then restarting your Docker containers:
-
-```shell
-git pull
-docker-compose down
-docker-compose up --detach
-```
+Your proxy is now running and should be served by traefik! You can share this with the URL `https://signal.tube/#<SIGNAL_DOMAIN>`
