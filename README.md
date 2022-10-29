@@ -1,5 +1,7 @@
 # Signal TLS Proxy
 
+[![Snyk Container](https://github.com/gigigig/Signal-TLS-Proxy-Traefik/actions/workflows/snyk-container.yml/badge.svg)](https://github.com/gigigig/Signal-TLS-Proxy-Traefik/actions/workflows/snyk-container.yml)
+
 forked from [Signal-TLS-Proxy-Traefik](https://github.com/signalapp/Signal-TLS-Proxy)
 
 If you have [traefik](https://github.com/traefik/traefik) up and running and use [labels](https://doc.traefik.io/traefik/providers/docker/#routing-configuration-with-labels) for dynamic configuration.
