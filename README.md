@@ -6,6 +6,7 @@ If you have [traefik](https://github.com/traefik/traefik) up and running and use
 
 A tcp-router and tcp-service `signal-tls-proxy` are created for TLS-Termination. 
 nginx-terminate container is removed and nginx-relay nginx.conf is moved to docker build.
+
 Assuming traefik listens on `443/tcp` on your host, has a certresolver named `letsencrypt` and has an entrypoint named `websecure`.
 
 1. Clone this repository
