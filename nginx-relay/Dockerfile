@@ -15,7 +15,7 @@ RUN wget https://nginx.org/download/nginx-1.18.0.tar.gz && \
 
 RUN adduser --system --no-create-home --disabled-login --disabled-password --group nginx
 
-COPY ./data/nginx-relay/nginx.conf /etc/nginx/conf.d/nginx.conf
+ADD https://raw.githubusercontent.com/signalapp/Signal-TLS-Proxy/main/data/nginx-relay/nginx.conf /etc/nginx/conf.d/nginx.conf
 
 WORKDIR /
 
